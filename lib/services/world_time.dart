@@ -4,12 +4,13 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 
 class WorldTime {
-  String locaiton;
+  String location;
   String time;
   String flag;
   Uri url;
+  bool isDaytime;
 
-  WorldTime({this.locaiton, this.flag, this.url});
+  WorldTime({this.location, this.flag, this.url});
 
   Future<void> getTime() async {
     try {
@@ -29,9 +30,11 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
 
       // set time propert
+      isDaytime = now.hour > 6 && now.hour < 19 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       time = 'Oops! Error in getting time data.';
+      isDaytime = false;
     }
 
     print('object');
