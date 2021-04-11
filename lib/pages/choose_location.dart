@@ -6,14 +6,6 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  int number = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    print('object');
-  }
-
   @override
   Widget build(BuildContext context) {
     print('object');
@@ -25,7 +17,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: RaisedButton(),
+      body: RaisedButton(
+        child: Text('Click Button Please'),
+      ),
     );
   }
 }
